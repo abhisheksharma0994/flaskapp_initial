@@ -1,0 +1,53 @@
+ $(document).ready(function() {
+ 
+ $("#quick").click(function(){
+	
+$.getJSON('http://www.json-generator.com/api/json/get/bRgaLYTuZK?indent=2', function (data) {
+		var output = '<ul id="categ"> ';
+		$.each(data, function (key, val) {
+			output += '<li class="xyz" id="'+val.identifier+'"><span><i class="icon-minus-sign"></i>' + val.tag_name + '</span></li>';
+		});
+		output += '</ul>';
+
+
+  $("#update").html(output);
+
+});
+
+}); 
+
+ $('#update').on('click', 'li', function(){
+	console.log($(
+});
+ $("#update").click(function(){
+$.getJSON('http://www.json-generator.com/api/json/get/bRgaLYTuZK?indent=2', function (data) {
+                
+		var images = '<br>';
+		$.each(data, function (key, val) {
+		    
+		    images +='<h3>'+val.breadcrumbs+'</h3><br>';
+			images += '<img src="'+val.picture+'"><br>';
+		});
+		images+= 'success' ;
+
+
+  $("#pic_view").html(images);
+});
+}); 
+
+$(function () {
+    $('.tree li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse this branch');
+    $('.tree li.parent_li > span').on('click', function (e) {
+        var children = $(this).parent('li.parent_li').find(' > ul > li');
+        if (children.is(":visible")) {
+            children.hide('fast');
+            $(this).attr('title', 'Expand this branch').find(' > i').addClass('icon-plus-sign').removeClass('icon-minus-sign');
+        } else {
+            children.show('fast');
+            $(this).attr('title', 'Collapse this branch').find(' > i').addClass('icon-minus-sign').removeClass('icon-plus-sign');
+        }
+        e.stopPropagation();
+    });
+});
+
+});

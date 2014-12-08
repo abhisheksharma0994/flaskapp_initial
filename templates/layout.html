@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Avaz App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+
+                <a class="navbar-brand" href="#"><strong>Flask App</strong></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="{{ url_for('home') }}">HOME</a>
+                    </li>
+                    <li><a href="{{ url_for('about') }}">ABOUT</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+
+    <!-- nav bar on the left  -->
+
+
+
+
+    <div class="container col-md-4" style="max-height: 500px;overflow: auto;">
+        <div class="tree well">
+            <center>
+                <input type="text" id="search_text" name="search_text" placeholder="Enter Search word">
+                <button type="button" class="btn btn-default" aria-label="Left Align" name="Search" id="search_but">
+                    <span class="glyphicon glyphicon glyphicon-search" aria-hidden="true"></span>
+                </button>
+                <button type="button" class="btn btn-default" aria-label="Left Align" name="Back" id="back_but">
+                    <span class="glyphicon glyphicon glyphicon glyphicon-remove" aria-hidden="true"></span>
+                </button>
+                <div id="search_result"></div>
+            </center>
+            <ul>
+                <li>
+                    <span id='try_quick'><i class="icon-folder-open"></i> Parent</span>
+
+                    <div id='try'></div>
+
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="container col-md-6">
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default" id='quick'>New</button>
+            <button type="button" class="btn btn-default">Edit</button>
+            <button type="button" class="btn btn-default" id='deleteit'>Delete</button>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <!-- json file output area -->
+
+    <div class='container col-md-6' id='pic_container' style="max-height: 450px;overflow: hidden;">
+        <center>
+            <div id='pic_view1' class="col-md-6" style="max-height: 450px;overflow: auto;">This is div 1 for images
+            </div>
+
+            <div id='pic_view2' class="col-md-6" style="max-height: 450px;overflow: auto;">This is a div2 for images
+            </div>
+        </center>
+    </div>
+
+    <br>
+    <br>
+
+
+
+
+
+    <div class="container">
+        {% block content %} {% endblock %}
+    </div>
+
+
+
+    <script type="text/javascript" src="{{url_for('static', filename='js/script_bac_two.js') }}"></script>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Avaz App</title>  
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+	  
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+     
+  </head>
+  <body>
+   
+    
+      
+	<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+     
+      <a class="navbar-brand" href="#"><strong>Flask App</strong></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      
+     
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{{ url_for('home') }}">HOME</a></li>
+        <li><a href="{{ url_for('about') }}">ABOUT</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+    
+	<!-- nav bar on the left  -->
+	
+
+	
+	<div class="container col-lg-4">
+	<div class="tree well">
+	  <ul>
+        <li>
+            <span id='quick'><i class="icon-folder-open"></i> Parent</span>
+	
+                <div id='update' ></div>
+    
+        </li>
+      </ul>
+    </div>
+        
+
+   </div>
+	 
+	 
+	 
+	 
+	 	<div class="container col-md-6">
+    <div class="btn-group" role="group" >
+  <button type="button" class="btn btn-default" id='quick'>New</button>
+  <button type="button" class="btn btn-default">Edit</button>
+  <button type="button" class="btn btn-default" id='deleteit'>Delete</button>
+</div>
+</div>	
+	<br>
+	<br>
+	<br>
+<!-- json file output area -->
+
+<div class='container' >
+    <div id='pic_view' >This is a div. This will be updated with Contents from JSON file using AJAX.
+    </div>
+</div>
+
+
+
+    <div class="container">
+      {% block content %}
+      {% endblock %}
+    </div>
+     
+<script type="text/javascript" src="{{url_for('static', filename='js/script.js') }}" ></script>
+  </body>
+</html>
